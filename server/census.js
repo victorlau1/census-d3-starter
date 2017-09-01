@@ -15,9 +15,19 @@ app.use('/save', (req, res) => {
     params: 'request params'
   }
   //Return data and error on resolution
-  res.send(axios.get(options));
+  axios.get(options)
+  .then((data) => {
+   // db.save(data)
+  })
+  .catch((err) => {
+    return err;
+  })
 })
 
 app.use('/get', (req, res) => {
-  
+  let options = {
+    url: 'uri',
+    params: 'request params'
+  }
+  res.send(axios.get(options))
 })
